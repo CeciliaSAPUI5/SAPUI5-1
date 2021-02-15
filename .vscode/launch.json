@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Invoices-HTML5Module1",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/invoices-approuter/node_modules/@sap/html5-repo-mock/index.js",
+      "args": [
+        "--standalone",
+        "/ns_logaligroupHTML5Module1/index.html",
+        "--ui5",
+        "{\"version\":\".\"}"
+      ],
+      "cwd": "${workspaceFolder}/HTML5Module1",
+      "env": {
+        "PORT": "6004",
+        "MOCK_LOOKUP_DIRS": "[\"webapp\"]",
+        "run.config": "{\"handlerId\":\"ui5_run_config_handler_id\",\"runnableId\":\"/home/user/projects/Invoices/HTML5Module1\"}"
+      },
+      "envFile": "${workspaceFolder}/HTML5Module1/.env6",
+      "preLaunchTask": "Build Invoices"
+    }
+  ]
+}
