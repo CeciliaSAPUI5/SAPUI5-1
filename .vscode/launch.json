@@ -18,7 +18,67 @@
         "MOCK_LOOKUP_DIRS": "[\"webapp\"]",
         "run.config": "{\"handlerId\":\"ui5_run_config_handler_id\",\"runnableId\":\"/home/user/projects/Invoices/HTML5Module1\"}"
       },
-      "envFile": "${workspaceFolder}/HTML5Module1/.env6",
+      "envFile": "${workspaceFolder}/HTML5Module1/.env7",
+      "preLaunchTask": "Build Invoices"
+    },
+    {
+      "name": "Run MockServer Invoices-HTML5Module1",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/invoices-approuter/node_modules/@sap/html5-repo-mock/index.js",
+      "args": [
+        "--standalone",
+        "/ns_logaligroupHTML5Module1/test/mockServer.html",
+        "--ui5",
+        "{\"version\":\".\"}"
+      ],
+      "cwd": "${workspaceFolder}/HTML5Module1",
+      "env": {
+        "PORT": "6004",
+        "MOCK_LOOKUP_DIRS": "[\"webapp\"]",
+        "run.config": "{\"handlerId\":\"ui5_run_config_handler_id\",\"runnableId\":\"/home/user/projects/Invoices/HTML5Module1\"}"
+      },
+      "envFile": "${workspaceFolder}/HTML5Module1/.env11",
+      "preLaunchTask": "Build Invoices"
+    },
+    {
+      "name": "Run TEST Invoices-HTML5Module1",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/invoices-approuter/node_modules/@sap/html5-repo-mock/index.js",
+      "args": [
+        "--standalone",
+        "/ns_logaligroupHTML5Module1/test/unit/unitTests.qunit.html",
+        "--ui5",
+        "{\"version\":\".\"}"
+      ],
+      "cwd": "${workspaceFolder}/HTML5Module1",
+      "env": {
+        "PORT": "6004",
+        "MOCK_LOOKUP_DIRS": "[\"webapp\"]",
+        "run.config": "{\"handlerId\":\"ui5_run_config_handler_id\",\"runnableId\":\"/home/user/projects/Invoices/HTML5Module1\"}"
+      },
+      "envFile": "${workspaceFolder}/HTML5Module1/.env19",
+      "preLaunchTask": "Build Invoices"
+    },
+    {
+      "name": "Run Integration Test Invoices-HTML5Module1",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/invoices-approuter/node_modules/@sap/html5-repo-mock/index.js",
+      "args": [
+        "--standalone",
+        "/ns_logaligroupHTML5Module1/test/integration/opaTests.qunit.html",
+        "--ui5",
+        "{\"version\":\".\"}"
+      ],
+      "cwd": "${workspaceFolder}/HTML5Module1",
+      "env": {
+        "PORT": "6004",
+        "MOCK_LOOKUP_DIRS": "[\"webapp\"]",
+        "run.config": "{\"handlerId\":\"ui5_run_config_handler_id\",\"runnableId\":\"/home/user/projects/Invoices/HTML5Module1\"}"
+      },
+      "envFile": "${workspaceFolder}/HTML5Module1/.env22",
       "preLaunchTask": "Build Invoices"
     }
   ]

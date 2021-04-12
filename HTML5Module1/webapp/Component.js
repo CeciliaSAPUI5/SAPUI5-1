@@ -2,19 +2,23 @@
 sap.ui.define([
     "sap/ui/core/UIComponent",
     "ns_logaligroup/HTML5Module1/model/Models",
-    "sap/ui/model/resource/ResourceModel"
+    "sap/ui/model/resource/ResourceModel",
+    "./controller/HelloDialog",
+    "sap/ui/Device"
 ],
     /**
      * @param {typeof sap.ui.core.UIComponent} UIComponent 
      * @param {typeof sap.ui.model.resource.ResourceModel} ResourceModel
+     * @param {typeof sap.ui.Device} Device
      */
-    function (UIComponent, Models, ResourceModel) {
-
+    function (UIComponent, Models, ResourceModel, HelloDialog, Device) { 
+    /*function (UIComponent, Models, ResourceModel) { */
         return UIComponent.extend("ns_logaligroup.HTML5Module1.Component", {
 
             metadata: {
                 manifest: "json"
             },
+
             init: function () {
                 //call the init function of the parent
                 UIComponent.prototype.init.apply(this, arguments);
@@ -23,8 +27,36 @@ sap.ui.define([
                 this.setModel(Models.createRecipient());
 
                 // set i18n model on the view
-                var i18nModel = new ResourceModel({ bundleName: "ns_logaligroup.HTML5Module1.i18n.i18n" });
-                this.setModel(i18nModel, "i18n");
+                //var i18nModel = new ResourceModel({ bundleName: "ns_logaligroup.HTML5Module1.i18n.i18n" });
+                //this.setModel(i18nModel, "i18n");
+
+                //set the device model
+                this.setModel(Models.createDeviceModel(), "device");
+
+                this._helloDialog = new HelloDialog(this.getRootControl());
+
+                //create the views based on the url/hash
+                this.getRouter().initialize();
+            },
+            
+            exit: function() {
+                this._helloDialog.destroy();
+                delete this._helloDialog;
+            },
+
+            openHelloDialog: function () {
+                this._helloDialog.open();
+            },
+
+            getContentDensityClass: function() {
+                if (!Device.support.touch) {
+                    this._sContentDensityClass = "sapUiSizeCompact"
+                } else {
+                    this._sContentDensityClass = "sapUiSizeCozy"
+                }
+                return this._sContentDensityClass;
             }
+            
         });
+        
     });
